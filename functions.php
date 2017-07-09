@@ -9,7 +9,7 @@ define("THEME_DIR", get_template_directory() );
 
 require THEME_DIR . '/inc/setup.php';
 require THEME_DIR . '/inc/enqueue.php';// 加载 js 和 css
-
+require THEME_DIR . '/inc/mycustom.php';// 加载 js 和 css
 /**
  *   边栏与小工具
  */
