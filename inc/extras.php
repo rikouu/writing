@@ -13,34 +13,6 @@
  	update_option('upload_path',WP_CONTENT_DIR.'/uploads');
  }
 
-/**
- * 在body中添加一些自定义class
- *
- * @param array $classes Classes for the body element.
- * @return array
- */
-function lean_body_classes( $classes ) {
-	// Adds a class of group-blog to blogs with more than 1 published author.
-	if ( is_multi_author() ) {
-		$classes[] = 'group-blog';
-	}
-
-	//Site Layout class:
-	$siteLayout = get_theme_mod( 'anaya_siteLayout_siteLayout' );
-	if( $siteLayout == 'boxed' ) {
-		$classes[] = 'boxed';
-	} else {
-		$classes[] = 'full-width';
-	}
-
-	if (is_front_page()) {
-		$classes[] = 'loading';
-	}
-
-	return $classes;
-}
-add_filter( 'body_class', 'lean_body_classes' );
-
 if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	/**
 	 * Filters wp_title to print a neat <title> tag based on what is being viewed.
